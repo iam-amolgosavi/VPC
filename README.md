@@ -27,15 +27,14 @@
       it must have IP4 adress or an Elastic IP address.
    2) Private Subnet
     . If a subnet does not have a route to the internet gateway, the subnet is known a private subnet.
-  # Note: When we created a vpc, we must specify an IPv4 CIDR Block for the VPC. The allowed block size is between /16 t0 /28
-  #       and the first four & last IP Address of a subnet cannot assigned ->
-  #       E.g 10.0.0.0/24 address following are reserved as follows:
+  # Note: When we created a vpc, we must specify an IPv4 CIDR Block for the VPC. The allowed block size is between /16 t0 /28 and the first four & last IP Address of subnet cannot assigned ->
+  #    E.g 10.0.0.0/24 address following are reserved as follows:
   #       . 10.0.0.0 --> Network Address
   #       . 10.0.0.1 --> Reserved by AWS for the VPC Router.
   #       . 10.0.0.2 --> Reserved by AWS, The IP Address of DNS server.
   #       . 10.0.0.3 --> Reserved for future use.
   #       . 10.0.0.255 --> Broadcast Address.  Aws does not support broadcast in vpc, but reserves the address.
-    3) Implied Router & Route Table
+   3) Implied Router & Route Table
      . It is the central routing function. It connects the different AZ together and connects the pc to the internet gateway.
      . We can have upto 200 route tables per pc.
      . Each subnet must be associated with only one route table at any given time.
