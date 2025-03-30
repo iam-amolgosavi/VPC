@@ -1,7 +1,6 @@
 # VPC
    ## What is virtual private cloud
-   
-   . A vpc is a virtual network that closely resembles a traditional networking that we operate on our own data centre, 
+    . A vpc is a virtual network that closely resembles a traditional networking that we operate on our own data centre, 
      with the benefits of using scalable infrastructure of AWS.
      
    . To simple say vpc is a virtual network or data center inside AWS for one client. It is logically isolated from other virtual network
@@ -22,14 +21,15 @@
    8) Elastic Ip
       
    ## Types Of VPC
+   
      1) Default vpc
      2) Custom vpc
   ## steps to create vpc
+  
    ``` Create vpc -> subnet -> Internet Gateway -> Route Table ```
   ## Components of VPC
   
-   1) Public Subnet:
-      
+   1) Public Subnet:    
     . If a subnets traffic is routed to an Internet Gateway, the subnet is known as public subnet.
     
     . If we want to our instance in public subnet to communicate with the internet over IPv4,
@@ -37,8 +37,7 @@
    
       
    2) Private Subnet:
-      
-    . If a subnet does not have a route to the internet gateway, the subnet is known a private subnet.
+   . If a subnet does not have a route to the internet gateway, the subnet is known a private subnet.
       
   #### Note: When we created a vpc, we must specify an IPv4 CIDR Block for the VPC. The allowed block size is between /16 t0 /28 and the first four & last IP Address of subnet cannot assigned ->
   #    E.g 10.0.0.0/24 address following are reserved as follows:
@@ -47,7 +46,8 @@
   #       . 10.0.0.2 --> Reserved by AWS, The IP Address of DNS server.
   #       . 10.0.0.3 --> Reserved for future use.
   #       . 10.0.0.255 --> Broadcast Address.  Aws does not support broadcast in vpc, but reserves the address.
-   3) Implied Router & Route Table: 
+  
+   3) Implied Router & Route Table:
      . It is the central routing function. It connects the different AZ together and connects the pc to the internet gateway.
       
      . We can have upto 200 route tables per pc.
@@ -73,8 +73,7 @@
      
   5) NAT Gateway:
      . We can use a Network Address translation gateway to enable instances in a private subnet
-     
-      to connect to the internet or other AWS services, but prevent the internet from initiating a connection with
+       to connect to the internet or other AWS services, but prevent the internet from initiating a connection with
       those instances.
      
      . We are charged for creating and using gateway in our account. NAT gateway hourly usage and data purchase rates apply.
