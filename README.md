@@ -1,5 +1,6 @@
 # VPC
    ## What is virtual private cloud
+   
     . A vpc is a virtual network that closely resembles a traditional networking that we operate on our own data centre, 
      with the benefits of using scalable infrastructure of AWS.
      
@@ -31,7 +32,7 @@
   
    1) Public Subnet:    
     . If a subnets traffic is routed to an Internet Gateway, the subnet is known as public subnet.
-    
+      
     . If we want to our instance in public subnet to communicate with the internet over IPv4,
       it must have IP4 adress or an Elastic IP address.
    
@@ -47,7 +48,7 @@
   #       . 10.0.0.3 --> Reserved for future use.
   #       . 10.0.0.255 --> Broadcast Address.  Aws does not support broadcast in vpc, but reserves the address.
   
-   3) Implied Router & Route Table:
+  3) Implied Router & Route Table:
      . It is the central routing function. It connects the different AZ together and connects the pc to the internet gateway.
       
      . We can have upto 200 route tables per pc.
