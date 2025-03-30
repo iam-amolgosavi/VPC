@@ -28,6 +28,7 @@
       
    2) Private Subnet: 
     . If a subnet does not have a route to the internet gateway, the subnet is known a private subnet.
+      
   # Note: When we created a vpc, we must specify an IPv4 CIDR Block for the VPC. The allowed block size is between /16 t0 /28 and the first four & last IP Address of subnet cannot assigned ->
   #    E.g 10.0.0.0/24 address following are reserved as follows:
   #       . 10.0.0.0 --> Network Address
@@ -42,11 +43,70 @@
      . If we do not specify a subnet to route table association, the subnet will be associated with default vpc route table.
      . we can also edit the main route table if we need, but we cannot delete the main route table.
      . we can associate multiple subnets with the same route table.
-  4) Internet Gateway:
+      
+  5) Internet Gateway:
      . An IGW is a virtual router that connects a VPC to internet.
      . Default pc is already attached with IGW.
      . If we create new vpc then we must attach IGW in order to access the internet.
      . Ensure that our subnet's route table points to the internet gateway.
      . It supports both ipv4 and ipv6.
-  5) NAT Gateway: 
+     
+  7) NAT Gateway:
+     . We can use a Network Address translation gateway to enable instances in a private subnet
+      to connect to the internet or other AWS services, but prevent the internet from initiating a connection with
+      those instances.
+     . We are charged for creating and using gateway in our account. NAT gateway hourly usage and data purchase rates apply.
+       Amazon ec2 charges for data transfer also apply.
+     . To create a NAT Gateway, we must specify the public subnet in which NAT gateway reside.
+     . No need to assign public IPs to our private instances
+     . After we have created a NAT gateway we must update the route table associated with one or more of our private
+       subnets to point internet bound traffic to the gateway.
+     . This enables instances in your private subnets to communicate with the internet.
+     . Deleting a NAT Gateway, disassociates its Elastic IP address, but does not releases the address from your account.
+
+8) Security Group:
+   . It is a virtual firewall works at ENI (Elastic Network Interface) level.
+   . Upto 5 Security groups per EC2 instances interfaces can be applied.
+   . Can only have permit rules, cannot have deny rule.
+
+9) Network ACL:
+    . It is a function performed on the implied router.
+    . NACL is an optional layer of security layer of security for our vpc that acts as a firewall for controlling
+      traffic in and out of one or more subnets.
+    . We can create a custom NACL and associate it with a subnet.
+
+# Difference Between Security Groups & NACL
+. Security group operate at instance level and NACL operate at subnet level.
+. SG support allows rules only and NACL permits allow as well as deny rules.
+. SG is stateful. return traffic is automatically allowed and NACL is stateless, return traffic must be explicitly
+  allowed by rules.
+. SG applies to an instance only and NACL applies to all instances in this subnet.
+
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
      
